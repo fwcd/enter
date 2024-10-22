@@ -9,6 +9,7 @@ import SwiftUI
 
 struct KeyView: View {
     let key: Key
+    var size: CGFloat = 36
     
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
@@ -58,8 +59,8 @@ struct KeyView: View {
                     Text("\(c.uppercased())")
                 }
             }
-            .font(.system(size: 48))
-            .frame(width: 128)
+            .font(.system(size: size))
+            .frame(width: 2 * size)
     }
 }
 

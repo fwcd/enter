@@ -14,19 +14,23 @@ struct ContentView: View {
     @Environment(\.keyModifiers) private var modifiers: Set<KeyModifier>
 
     var body: some View {
-        HStack {
-            ForEach(modifiers.sorted(), id: \.self) { modifier in
-                KeyView(key: .modifier(modifier))
+        VStack(spacing: 24) {
+            HStack {
+                if let disabledKey {
+                    KeyView(key: disabledKey)
+                        .opacity(0.5)
+                } else if keys.isEmpty {
+                    Text("Press any key to get started!")
+                        .opacity(0.5)
+                }
+                ForEach(keys, id: \.self) { key in
+                    KeyView(key: key)
+                }
             }
-            if let disabledKey {
-                KeyView(key: disabledKey)
-                    .opacity(0.5)
-            } else if keys.isEmpty {
-                Text("Press any key to get started!")
-                    .opacity(0.5)
-            }
-            ForEach(keys, id: \.self) { key in
-                KeyView(key: key)
+            HStack {
+                ForEach(modifiers.sorted(), id: \.self) { modifier in
+                    KeyView(key: .modifier(modifier), size: 24)
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
