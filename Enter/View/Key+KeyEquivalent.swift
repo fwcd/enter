@@ -20,6 +20,11 @@ extension Key {
         case .return: .return
         case .space: .space
         case .tab: .tab
+        case .clear: .clear
+        case .home: .home
+        case .end: .end
+        case .pageUp: .pageUp
+        case .pageDown: .pageDown
         default: .character(keyEquivalent.character)
         }
     }

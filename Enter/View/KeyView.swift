@@ -29,6 +29,16 @@ struct KeyView: View {
                     Image(systemName: "arrow.right.to.line")
                 case .escape:
                     Image(systemName: "escape")
+                case .clear:
+                    Image(systemName: "trash")
+                case .home:
+                    Image(systemName: "arrow.up.to.line")
+                case .end:
+                    Image(systemName: "arrow.down.to.line")
+                case .pageUp:
+                    Image(systemName: "arrow.up")
+                case .pageDown:
+                    Image(systemName: "arrow.down")
                 case .modifier(let modifier):
                     switch modifier {
                     case .shift:
@@ -45,13 +55,13 @@ struct KeyView: View {
                 case .arrow(let direction):
                     switch direction {
                     case .left:
-                        Image(systemName: "arrow.left")
+                        Image(systemName: "arrowtriangle.left")
                     case .right:
-                        Image(systemName: "arrow.right")
+                        Image(systemName: "arrowtriangle.right")
                     case .up:
-                        Image(systemName: "arrow.up")
+                        Image(systemName: "arrowtriangle.up")
                     case .down:
-                        Image(systemName: "arrow.down")
+                        Image(systemName: "arrowtriangle.down")
                     }
                 case .function(let n):
                     Text("F\(n)")

@@ -14,6 +14,11 @@ enum Key: Hashable, Comparable {
     case `return`
     case space
     case tab
+    case clear
+    case home
+    case end
+    case pageUp
+    case pageDown
     case modifier(KeyModifier)
     case arrow(Direction)
     case character(Character)
