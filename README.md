@@ -1,3 +1,3 @@
 # Enter
 
-A small keyboard and mouse input testing tool.
+A small keyboard input testing tool for macOS.
