@@ -13,7 +13,7 @@ struct KeyView: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
-            .stroke(.white)
+            .stroke(.foreground)
             .aspectRatio(1, contentMode: .fit)
             .overlay {
                 switch key {
