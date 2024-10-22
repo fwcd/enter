@@ -54,5 +54,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    KeyModifiersEnvironment {
+        ContentView()
+    }
 }

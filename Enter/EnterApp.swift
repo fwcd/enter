@@ -11,7 +11,9 @@ import SwiftUI
 struct EnterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            KeyModifiersEnvironment {
+                ContentView()
+            }
         }
     }
 }
