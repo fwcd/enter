@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Key: Hashable {
+enum Key: Hashable, Comparable {
     case delete
     case deleteForward
     case escape

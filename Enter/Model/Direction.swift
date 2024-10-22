@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Direction: Hashable {
+enum Direction: Hashable, Comparable {
     case up
     case down
     case left

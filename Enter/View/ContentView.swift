@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var keys: [Key] = []
+    @State private var keys: Set<Key> = []
     @State private var disabledKey: Key?
     @FocusState private var focused: Bool
     @Environment(\.keyModifiers) private var modifiers: Set<KeyModifier>
@@ -23,7 +23,7 @@ struct ContentView: View {
                     Text("Press any key to get started!")
                         .opacity(0.5)
                 }
-                ForEach(keys, id: \.self) { key in
+                ForEach(keys.sorted(), id: \.self) { key in
                     KeyView(key: key)
                 }
             }
@@ -45,14 +45,14 @@ struct ContentView: View {
             
             switch keyPress.phase {
             case .down:
-                keys.append(key)
+                keys.insert(key)
                 disabledKey = nil
                 return .handled
             case .up:
                 if keys.count == 1 {
                     disabledKey = key
                 }
-                keys.removeAll { $0 == key }
+                keys.remove(key)
                 return .handled
             default:
                 return .ignored
