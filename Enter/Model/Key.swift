@@ -14,6 +14,7 @@ enum Key: Hashable {
     case option
     case command
     case control
+    case capsLock
     case escape
     case `return`
     case space

@@ -24,6 +24,8 @@ struct KeyView: View {
                     Image(systemName: "command")
                 case .control:
                     Image(systemName: "control")
+                case .capsLock:
+                    Image(systemName: "capslock")
                 case .delete:
                     Image(systemName: "delete.left")
                 case .deleteForward:
