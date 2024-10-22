@@ -66,7 +66,7 @@ struct KeyView: View {
                 case .function(let n):
                     Text("F\(n)")
                 case .character(let c):
-                    Text("\(c.uppercased())")
+                    Text("\(c)")
                 }
             }
             .font(.system(size: size))

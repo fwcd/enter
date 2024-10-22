@@ -25,7 +25,7 @@ extension Key {
         case .end: .end
         case .pageUp: .pageUp
         case .pageDown: .pageDown
-        default: .character(keyEquivalent.character)
+        default: .character(keyEquivalent.character.uppercasedCharacter)
         }
     }
 }
