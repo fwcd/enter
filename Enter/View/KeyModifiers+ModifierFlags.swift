@@ -7,7 +7,7 @@
 
 import AppKit
 
-extension Set where Element == Modifier {
+extension Set where Element == KeyModifier {
     init(_ eventModifiers: NSEvent.ModifierFlags) {
         self.init()
         if eventModifiers.contains(.shift) { insert(.shift) }

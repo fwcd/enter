@@ -1,5 +1,5 @@
 //
-//  Modifier.swift
+//  KeyModifier.swift
 //  Enter
 //
 //  Created on 22.10.24
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Modifier: Hashable {
+enum KeyModifier: Hashable {
     case shift
     case option
     case command

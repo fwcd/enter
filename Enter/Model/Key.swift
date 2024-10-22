@@ -14,7 +14,7 @@ enum Key: Hashable {
     case `return`
     case space
     case tab
-    case modifier(Modifier)
+    case modifier(KeyModifier)
     case arrow(Direction)
     case character(Character)
     case function(Int)
