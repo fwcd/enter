@@ -19,7 +19,7 @@ struct ContentView: View {
                 if let disabledKey {
                     KeyView(key: disabledKey)
                         .opacity(0.5)
-                } else if keys.isEmpty {
+                } else if keys.isEmpty && modifiers.isEmpty {
                     Text("Press any key to get started!")
                         .opacity(0.5)
                 }
