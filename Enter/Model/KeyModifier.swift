@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum KeyModifier: Hashable, Comparable {
+enum KeyModifier: Hashable, Comparable, CaseIterable {
     case capsLock
     case control
     case option

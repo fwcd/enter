@@ -28,8 +28,9 @@ struct ContentView: View {
                 }
             }
             HStack {
-                ForEach(modifiers.sorted(), id: \.self) { modifier in
-                    KeyView(key: .modifier(modifier), size: 24)
+                ForEach(KeyModifier.allCases, id: \.self) { modifier in
+                    KeyView(key: .modifier(modifier), size: 18)
+                        .opacity(modifiers.contains(modifier) ? 1 : 0.5)
                 }
             }
         }
