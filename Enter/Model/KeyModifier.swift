@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum KeyModifier: Hashable {
-    case shift
-    case option
-    case command
-    case control
+enum KeyModifier: Hashable, Comparable {
     case capsLock
+    case control
+    case option
+    case shift
+    case command
 }

@@ -11,9 +11,13 @@ struct ContentView: View {
     @State private var keys: [Key] = []
     @State private var disabledKey: Key?
     @FocusState private var focused: Bool
-    
+    @Environment(\.keyModifiers) private var modifiers: Set<KeyModifier>
+
     var body: some View {
         HStack {
+            ForEach(modifiers.sorted(), id: \.self) { modifier in
+                KeyView(key: .modifier(modifier))
+            }
             if let disabledKey {
                 KeyView(key: disabledKey)
                     .opacity(0.5)
