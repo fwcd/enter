@@ -10,15 +10,11 @@ import Foundation
 enum Key: Hashable {
     case delete
     case deleteForward
-    case shift
-    case option
-    case command
-    case control
-    case capsLock
     case escape
     case `return`
     case space
     case tab
+    case modifier(Modifier)
     case arrow(Direction)
     case character(Character)
     case function(Int)

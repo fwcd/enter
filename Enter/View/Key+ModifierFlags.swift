@@ -5,10 +5,10 @@
 //  Created on 22.10.24
 //
 
-import SwiftUI
+import AppKit
 
-extension Set where Element == Key {
-    init(_ eventModifiers: EventModifiers) {
+extension Set where Element == Modifier {
+    init(_ eventModifiers: NSEvent.ModifierFlags) {
         self.init()
         if eventModifiers.contains(.shift) { insert(.shift) }
         if eventModifiers.contains(.option) { insert(.option) }

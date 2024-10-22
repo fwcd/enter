@@ -16,16 +16,6 @@ struct KeyView: View {
             .aspectRatio(1, contentMode: .fit)
             .overlay {
                 switch key {
-                case .shift:
-                    Image(systemName: "shift")
-                case .option:
-                    Image(systemName: "option")
-                case .command:
-                    Image(systemName: "command")
-                case .control:
-                    Image(systemName: "control")
-                case .capsLock:
-                    Image(systemName: "capslock")
                 case .delete:
                     Image(systemName: "delete.left")
                 case .deleteForward:
@@ -38,6 +28,19 @@ struct KeyView: View {
                     Image(systemName: "arrow.right.to.line")
                 case .escape:
                     Image(systemName: "escape")
+                case .modifier(let modifier):
+                    switch modifier {
+                    case .shift:
+                        Image(systemName: "shift")
+                    case .option:
+                        Image(systemName: "option")
+                    case .command:
+                        Image(systemName: "command")
+                    case .control:
+                        Image(systemName: "control")
+                    case .capsLock:
+                        Image(systemName: "capslock")
+                    }
                 case .arrow(let direction):
                     switch direction {
                     case .left:
