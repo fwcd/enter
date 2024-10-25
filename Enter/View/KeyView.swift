@@ -41,16 +41,16 @@ struct KeyView: View {
                     Image(systemName: "arrow.down")
                 case .modifier(let modifier):
                     switch modifier {
-                    case .shift:
-                        Image(systemName: "shift")
-                    case .option:
-                        Image(systemName: "option")
-                    case .command:
-                        Image(systemName: "command")
-                    case .control:
-                        Image(systemName: "control")
                     case .capsLock:
                         Image(systemName: "capslock")
+                    case .control:
+                        Image(systemName: "control")
+                    case .option:
+                        Image(systemName: "option")
+                    case .shift:
+                        Image(systemName: "shift")
+                    case .command:
+                        Image(systemName: "command")
                     case .function:
                         Image(systemName: "globe")
                     }
