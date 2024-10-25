@@ -13,4 +13,5 @@ enum KeyModifier: Hashable, Comparable, CaseIterable {
     case option
     case shift
     case command
+    case function
 }

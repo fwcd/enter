@@ -51,6 +51,8 @@ struct KeyView: View {
                         Image(systemName: "control")
                     case .capsLock:
                         Image(systemName: "capslock")
+                    case .function:
+                        Image(systemName: "globe")
                     }
                 case .arrow(let direction):
                     switch direction {

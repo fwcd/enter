@@ -15,5 +15,6 @@ extension Set where Element == KeyModifier {
         if eventModifiers.contains(.command) { insert(.command) }
         if eventModifiers.contains(.control) { insert(.control) }
         if eventModifiers.contains(.capsLock) { insert(.capsLock) }
+        if eventModifiers.contains(.function) { insert(.function) }
     }
 }
