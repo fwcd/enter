@@ -14,7 +14,7 @@ enum ContentTab: String, Hashable, CaseIterable {
     var iconName: String {
         switch self {
         case .keyboard: "keyboard"
-        case .scrollWheel: "scroll"
+        case .scrollWheel: "gearshape"
         }
     }
     
