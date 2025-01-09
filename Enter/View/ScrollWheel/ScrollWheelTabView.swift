@@ -6,17 +6,25 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ScrollWheelTabView: View {
-    @State private var offset: CGVector? = nil
+    @State private var history: [CGVector] = []
     
     var body: some View {
-        ScrollEventReader { offset in
-            self.offset = offset
+        ScrollEventReader { delta in
+            history.append(delta)
         }
         .overlay {
-            Text(String(describing: offset))
-                .allowsHitTesting(false)
+            Chart {
+                ForEach(Array(history.enumerated()), id: \.offset) { event in
+                    LineMark(
+                        x: .value("Index", event.offset),
+                        y: .value("Y", Double(event.element.dy))
+                    )
+                }
+            }
+            .allowsHitTesting(false)
         }
     }
 }
