@@ -32,7 +32,9 @@ private struct ContentTabLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack(spacing: 10) {
             configuration.icon
-                .font(.system(size: 36))
+                .font(.system(size: 26))
+                .aspectRatio(1, contentMode: .fit)
+                .frame(height: 30)
             configuration.title
         }
     }
