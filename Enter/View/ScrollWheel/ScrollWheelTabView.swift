@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ScrollWheelTabView: View {
+    @State private var offset: CGVector? = nil
+    
     var body: some View {
-        Text("Test")
+        ScrollEventReader { offset in
+            self.offset = offset
+        }
+        .overlay {
+            Text(String(describing: offset))
+                .allowsHitTesting(false)
+        }
     }
 }
 
