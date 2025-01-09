@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ScrollEvent: Hashable {
+struct ScrollEvent: Hashable, Identifiable {
+    var id = UUID()
     var position: CGPoint
     var delta: CGVector
     var timestamp: TimeInterval

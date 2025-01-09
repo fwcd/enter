@@ -20,6 +20,8 @@ struct ScrollEventReader: NSViewControllerRepresentable {
     
     final class ViewController: NSViewController {
         fileprivate var onEvent: (ScrollEvent) -> Void
+        
+        private var startTimestamp: TimeInterval? = nil
         private var position: CGPoint = .zero
         
         init(onEvent: @escaping (ScrollEvent) -> Void) {
@@ -32,10 +34,13 @@ struct ScrollEventReader: NSViewControllerRepresentable {
         }
         
         override func scrollWheel(with event: NSEvent) {
+            let startTimestamp = startTimestamp ?? event.timestamp
+            self.startTimestamp = startTimestamp
+            
             let delta = CGVector(dx: event.scrollingDeltaX, dy: event.scrollingDeltaY)
             position.x += delta.dx
             position.y += delta.dy
-            onEvent(.init(position: position, delta: delta, timestamp: event.timestamp))
+            onEvent(.init(position: position, delta: delta, timestamp: event.timestamp - startTimestamp))
         }
     }
 }
