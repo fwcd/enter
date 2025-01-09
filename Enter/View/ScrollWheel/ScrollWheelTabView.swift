@@ -9,20 +9,19 @@ import SwiftUI
 import Charts
 
 struct ScrollWheelTabView: View {
-    @State private var history: [CGVector] = []
+    @State private var history: [(dx: Double, dy: Double)] = []
     
     var body: some View {
         ScrollEventReader { delta in
-            history.append(delta)
+            history.append((dx: Double(delta.dx), dy: Double(delta.dy)))
         }
         .overlay {
             Chart {
-                ForEach(Array(history.enumerated()), id: \.offset) { event in
-                    LineMark(
-                        x: .value("Index", event.offset),
-                        y: .value("Y", Double(event.element.dy))
-                    )
-                }
+                LinePlot(
+                    Array(history.enumerated()),
+                    x: .value("Index", \.offset),
+                    y: .value("Y", \.element.dy)
+                )
             }
             .allowsHitTesting(false)
         }
