@@ -12,6 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         ContentDetail(tab: tab)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .safeAreaInset(edge: .top) {
                 ContentTabBar(selection: $tab)
                     .padding()

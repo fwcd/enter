@@ -9,10 +9,12 @@ import SwiftUI
 
 enum ContentTab: String, Hashable, CaseIterable {
     case keyboard = "Keyboard"
+    case scrollWheel = "Scroll Wheel"
     
     var iconName: String {
         switch self {
         case .keyboard: "keyboard"
+        case .scrollWheel: "scroll"
         }
     }
     

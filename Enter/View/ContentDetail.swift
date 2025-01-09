@@ -14,6 +14,8 @@ struct ContentDetail: View {
         switch tab {
         case .keyboard:
             KeyboardTabView()
+        case .scrollWheel:
+            ScrollWheelTabView()
         }
     }
 }
