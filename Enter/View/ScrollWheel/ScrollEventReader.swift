@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrollEventReader: NSViewControllerRepresentable {
-    let onEvent: (CGPoint) -> Void
+    let onEvent: (ScrollEvent) -> Void
     
     func makeNSViewController(context: Context) -> ViewController {
         ViewController(onEvent: onEvent)
@@ -19,10 +19,10 @@ struct ScrollEventReader: NSViewControllerRepresentable {
     }
     
     final class ViewController: NSViewController {
-        fileprivate var onEvent: (CGPoint) -> Void
+        fileprivate var onEvent: (ScrollEvent) -> Void
         private var position: CGPoint = .zero
         
-        init(onEvent: @escaping (CGPoint) -> Void) {
+        init(onEvent: @escaping (ScrollEvent) -> Void) {
             self.onEvent = onEvent
             super.init(nibName: nil, bundle: nil)
         }
@@ -32,9 +32,10 @@ struct ScrollEventReader: NSViewControllerRepresentable {
         }
         
         override func scrollWheel(with event: NSEvent) {
-            position.x += event.scrollingDeltaX
-            position.y += event.scrollingDeltaY
-            onEvent(position)
+            let delta = CGVector(dx: event.scrollingDeltaX, dy: event.scrollingDeltaY)
+            position.x += delta.dx
+            position.y += delta.dy
+            onEvent(.init(position: position, delta: delta, timestamp: event.timestamp))
         }
     }
 }
