@@ -20,6 +20,7 @@ struct ContentTabBar: View {
                         RoundedRectangle(cornerRadius: 5)
                             .fill(.foreground.opacity(selection == tab ? 0.1 : 0))
                     )
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         selection = tab
                     }
