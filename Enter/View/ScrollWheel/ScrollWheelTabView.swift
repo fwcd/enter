@@ -9,11 +9,20 @@ import SwiftUI
 import Charts
 
 struct ScrollWheelTabView: View {
+    private let limit = 1000
+    
     @State private var history: [ScrollEvent] = []
+    
+    private var timeRange: ClosedRange<TimeInterval> {
+        (history.first?.timestamp ?? 0)...(history.last?.timestamp ?? 0)
+    }
     
     var body: some View {
         ScrollEventReader { event in
             history.append(event)
+            if history.count > limit {
+                history.removeFirst(history.count - limit)
+            }
         }
         .overlay {
             Chart(history) {
@@ -29,6 +38,7 @@ struct ScrollWheelTabView: View {
                 )
                 .foregroundStyle(by: .value("Axis", "Y"))
             }
+            .chartXScale(domain: timeRange)
             .padding()
             .allowsHitTesting(false)
         }
