@@ -25,20 +25,27 @@ struct ScrollWheelTabView: View {
             }
         }
         .overlay {
-            Chart(history) {
-                LineMark(
-                    x: .value("Time", $0.timestamp),
-                    y: .value("X", Double($0.position.x))
-                )
-                .foregroundStyle(by: .value("Axis", "X"))
-                
-                LineMark(
-                    x: .value("Time", $0.timestamp),
-                    y: .value("Y", Double($0.position.y))
-                )
-                .foregroundStyle(by: .value("Axis", "Y"))
+            Group {
+                if history.isEmpty {
+                    Text("Scroll to get started!")
+                        .opacity(0.5)
+                } else {
+                    Chart(history) {
+                        LineMark(
+                            x: .value("Time", $0.timestamp),
+                            y: .value("X", Double($0.position.x))
+                        )
+                        .foregroundStyle(by: .value("Axis", "X"))
+                        
+                        LineMark(
+                            x: .value("Time", $0.timestamp),
+                            y: .value("Y", Double($0.position.y))
+                        )
+                        .foregroundStyle(by: .value("Axis", "Y"))
+                    }
+                    .chartXScale(domain: timeRange)
+                }
             }
-            .chartXScale(domain: timeRange)
             .padding()
             .allowsHitTesting(false)
         }
